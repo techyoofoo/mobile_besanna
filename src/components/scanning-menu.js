@@ -9,7 +9,7 @@ export default class ScanningMenu extends Component {
         <View style={appStyleSheets.appScannerImage}>
           <Image source={require("../../assets/scan_menu.png")} />
         </View>
-        <View style={{ flexDirection: "row", margin: 10 }}>
+        <View style={{ flexDirection: "row", justifyContent:'space-around' }}>
           <View style={{ margin: 10 }}>
             <TouchableOpacity
               style={appStyleSheets.btnTextScanMenu}
@@ -26,7 +26,7 @@ export default class ScanningMenu extends Component {
             <TouchableOpacity
               style={appStyleSheets.btnTextScanMenu}
               activeOpacity={0.5}
-              onPress={() => {}}
+              onPress={() => this.props.navigation.navigate("SelfScanScreen")}
             >
               <Text style={{ textAlign: "center", margin: 10 }}>
                 Scan{"\n"}

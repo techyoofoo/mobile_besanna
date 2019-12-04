@@ -5,7 +5,8 @@ import {
   StatusBar,
   Image,
   ScrollView,
-  TextInput
+  TextInput,
+  CheckBox
 } from "react-native";
 import appStyleSheets, { themeColor, textColor } from "../styles/styles";
 
@@ -190,6 +191,93 @@ export default class MyAccountScreen extends Component {
             onChangeText={() => {}}
             value="05/Dec/2302"
           />
+          <View style={appStyleSheets.inputBorderStyle} />
+        </View>
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              margin: 10
+            }}
+          >
+            <Text style={{ color: textColor }}>Phone Number</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <CheckBox value={false} onValueChange={() => {}} />
+              <Text style={{ color: textColor }}>add to report</Text>
+            </View>
+          </View>
+          <Text style={{ color: textColor, marginLeft: 10 }}>
+            For notification,reminders and help logging in
+          </Text>
+          <Text
+            style={{ color: textColor, marginLeft: 10, fontWeight: "bold" }}
+          >
+            +1 801 555 9876
+          </Text>
+          <View style={appStyleSheets.inputBorderStyle} />
+        </View>
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              margin: 10
+            }}
+          >
+            <Text style={{ color: textColor }}>Instagram</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <CheckBox value={false} onValueChange={() => {}} />
+              <Text style={{ color: textColor }}>add to report</Text>
+            </View>
+          </View>          
+          <Text
+            style={{ color: textColor, marginLeft: 10, fontWeight: "bold" }}
+          >
+            @Janesmith
+          </Text>
+          <View style={appStyleSheets.inputBorderStyle} />
+        </View>
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              margin: 10
+            }}
+          >
+            <Text style={{ color: textColor }}>Twitter</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <CheckBox value={false} onValueChange={() => {}} />
+              <Text style={{ color: textColor }}>add to report</Text>
+            </View>
+          </View>          
+          <Text
+            style={{ color: textColor, marginLeft: 10, fontWeight: "bold" }}
+          >
+            @Janesmith
+          </Text>
+          <View style={appStyleSheets.inputBorderStyle} />
+        </View>
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              margin: 10
+            }}
+          >
+            <Text style={{ color: textColor }}>Facebook</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <CheckBox value={false} onValueChange={() => {}} />
+              <Text style={{ color: textColor }}>add to report</Text>
+            </View>
+          </View>          
+          <Text
+            style={{ color: textColor, marginLeft: 10, fontWeight: "bold" }}
+          >
+            @Janesmith
+          </Text>
           <View style={appStyleSheets.inputBorderStyle} />
         </View>
       </ScrollView>
