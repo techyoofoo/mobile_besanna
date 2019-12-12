@@ -39,6 +39,11 @@ const scanStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff",    
     height: 40
+  },
+  frndLstData:{
+    textAlign: "center",
+    margin: 10,
+    color: "#fff",    
   }
 });
 

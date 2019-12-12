@@ -14,7 +14,7 @@ export default class ScanningMenu extends Component {
             <TouchableOpacity
               style={appStyleSheets.btnTextScanMenu}
               activeOpacity={0.5}
-              onPress={() => {}}
+              onPress={() => this.props.navigation.navigate("FriendList")}
             >
               <Text style={{ textAlign: "center", margin: 10 }}>
                 Friend{"\n"}

@@ -14,23 +14,26 @@ export default class SelfScanScreen extends Component {
     return (
       <View>
         <StatusBar style={themeColor} />
-        
+
         <View style={scanStyles.selfScanHeader}>
-        <TouchableOpacity activeOpacity={0.5}
-               onPress={() => this.props.navigation.navigate("SelfScanScreen")}>
-        <Image
-                style={{margin: 5,
-                    position: "absolute",
-                    top: 28,
-                    left: 10,
-                    width: 35,
-                    height: 35,
-                   }}
-                source={require("../../../assets/close.png")}                
-              />
-        </TouchableOpacity>
-        
-          <Text style={scanStyles.selfScanHeaderText}>besanna</Text>          
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => this.props.navigation.navigate("MyAccountScreen")}
+          >
+            <Image
+              style={{
+                margin: 5,
+                position: "absolute",
+                top: 28,
+                left: 10,
+                width: 35,
+                height: 35
+              }}
+              source={require("../../../assets/close.png")}
+            />
+          </TouchableOpacity>
+
+          <Text style={scanStyles.selfScanHeaderText}>besanna</Text>
           <Text
             style={{
               color: "#fff",
