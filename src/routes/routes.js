@@ -9,6 +9,7 @@ import ScanningMenu from "../components/scanning-menu";
 import MyAccountScreen from "../components/my-account";
 import SelfScanScreen from '../components/scan-menu/self-scan';
 import FriendList from '../components/scan-menu/firends-list';
+import ScanAFriend from '../components/scan-menu/scan-friend';
 
 const Routes = createStackNavigator(
   {
@@ -66,6 +67,13 @@ const Routes = createStackNavigator(
       navigationOptions:{
         header: null,
         headerLeft: null
+      }
+    },
+    ScanAFriend:{
+      screen: ScanAFriend,
+      navigationOptions:{
+        header:null,
+        
       }
     }
   },

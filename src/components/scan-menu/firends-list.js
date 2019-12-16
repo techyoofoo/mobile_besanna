@@ -12,7 +12,7 @@ import scanStyles, { themeColor } from "../../styles/scan-styles";
 export default class FriendList extends Component {
   render() {
     return (
-      <View>
+      <ScrollView>
         <StatusBar style={themeColor} />
         <View style={scanStyles.selfScanHeader}>
           <Text style={scanStyles.selfScanHeaderText}>besanna</Text>
@@ -50,13 +50,13 @@ export default class FriendList extends Component {
             source={require("../../../assets/profile.png")}
             style={{ width: 60, height: 60, borderRadius: 30 }}
           />
-          <Text style={{ margin: 15}}>Adam, Chris</Text>
+          <Text style={{ margin: 15 }}>Adam, Chris</Text>
         </View>
         <View
           style={{
             borderBottomColor: "black",
             borderBottomWidth: 1,
-            margin:10
+            margin: 10
           }}
         />
         <View
@@ -70,13 +70,13 @@ export default class FriendList extends Component {
             source={require("../../../assets/profile.png")}
             style={{ width: 60, height: 60, borderRadius: 30 }}
           />
-          <Text style={{ margin: 15}}>Adam, Chris</Text>
+          <Text style={{ margin: 15 }}>Adam, Chris</Text>
         </View>
         <View
           style={{
             borderBottomColor: "black",
             borderBottomWidth: 1,
-            margin:10
+            margin: 10
           }}
         />
         <View
@@ -90,13 +90,13 @@ export default class FriendList extends Component {
             source={require("../../../assets/profile.png")}
             style={{ width: 60, height: 60, borderRadius: 30 }}
           />
-          <Text style={{ margin: 15}}>Adam, Chris</Text>
+          <Text style={{ margin: 15 }}>Adam, Chris</Text>
         </View>
         <View
           style={{
             borderBottomColor: "black",
             borderBottomWidth: 1,
-            margin:10
+            margin: 10
           }}
         />
         <View
@@ -110,13 +110,13 @@ export default class FriendList extends Component {
             source={require("../../../assets/profile.png")}
             style={{ width: 60, height: 60, borderRadius: 30 }}
           />
-          <Text style={{ margin: 15}}>Call Chris</Text>
+          <Text style={{ margin: 15 }}>Call Chris</Text>
         </View>
         <View
           style={{
             borderBottomColor: "black",
             borderBottomWidth: 1,
-            margin:10
+            margin: 10
           }}
         />
         <View
@@ -130,16 +130,24 @@ export default class FriendList extends Component {
             source={require("../../../assets/profile.png")}
             style={{ width: 60, height: 60, borderRadius: 30 }}
           />
-          <Text style={{ margin: 15}}>Azata mecnic</Text>
+          <Text style={{ margin: 15 }}>Azata mecnic</Text>
         </View>
         <View
           style={{
             borderBottomColor: "black",
             borderBottomWidth: 1,
-            margin:10
+            margin: 10
           }}
         />
-      </View>
+        <TouchableOpacity style={scanStyles.mainConatinerStyle} onPress={() =>
+              this.props.navigation.navigate("ScanAFriend")
+            }>
+          <Image
+            source={require("../../../assets/profile.png")}
+            style={{ width: 60, height: 60, borderRadius: 30 }}
+          />
+        </TouchableOpacity>
+      </ScrollView>
     );
   }
 }

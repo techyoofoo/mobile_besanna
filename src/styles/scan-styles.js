@@ -20,7 +20,7 @@ const scanStyles = StyleSheet.create({
     paddingTop: 28,
     letterSpacing: 1
   },
-  btnScan:{
+  btnScan: {
     backgroundColor: themeColor,
     borderRadius: 30,
     borderWidth: 1,
@@ -28,22 +28,64 @@ const scanStyles = StyleSheet.create({
     width: 80,
     height: 40
   },
-  txtScan:{
+  txtScan: {
     textAlign: "center",
     margin: 10,
     color: "#fff"
   },
-  btnScanData:{
+  btnScanData: {
     backgroundColor: themeColor,
     borderRadius: 30,
     borderWidth: 1,
-    borderColor: "#fff",    
+    borderColor: "#fff",
     height: 40
   },
-  frndLstData:{
+  frndLstData: {
     textAlign: "center",
     margin: 10,
-    color: "#fff",    
+    color: "#fff"
+  },
+  mainConatinerStyle: {
+    flexDirection: "column",
+    flex: 1,
+    position: "absolute",
+    bottom: 38,
+    right: 35,
+    width: 35,
+    height: 35
+  },
+  floatingMenuButtonStyle: {
+    alignSelf: "flex-end",
+    position: "absolute",
+    bottom: 35,
+    right: 10
+  },
+
+  btnDarkBackground: {
+    backgroundColor: themeColor,
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: "#fff",
+    width: 80,
+    height: 40
+  },
+  textDark: {
+    textAlign: "center",
+    margin: 10,
+    color: "#fff"
+  },
+  btnLightBackground: {
+    backgroundColor: "#fff",
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: themeColor,
+    width: 80,
+    height: 40
+  },
+  textLight: {
+    textAlign: "center",
+    margin: 10,
+    color: "#000"
   }
 });
 
