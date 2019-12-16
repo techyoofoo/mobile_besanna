@@ -38,10 +38,10 @@ export default class ScanAFriend extends Component {
 
       let supplmntBtnColor, supplmntTextColor;
       if(supplementsBtnColorStatus === false){
-          supplmntBtnColor = scanStyles.btnDarkBackground;
-          supplmntTextColor = scanStyles.textDark;
+          supplmntBtnColor = scanStyles.supplmentsBtnDark;
+          supplmntTextColor = scanStyles.supplementTextDark;
       }else {
-          supplmntBtnColor = scanStyles.btnLightBackground;
+          supplmntBtnColor = scanStyles.supplmentsBtnLight;
           supplmntTextColor = scanStyles.textLight;
       }
 

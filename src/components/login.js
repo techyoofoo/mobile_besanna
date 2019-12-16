@@ -106,6 +106,7 @@ export default class LoginScreen extends Component {
           <Text style={appStyleSheets.labelStyle}>Password</Text>
           <TextInput
             style={appStyleSheets.textBoxStyle}
+            secureTextEntry={true}
             placeholder="Enter Password"
             onChangeText={valLoginPassword =>
               this.setState({

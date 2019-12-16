@@ -66,7 +66,7 @@ const scanStyles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
     borderColor: "#fff",
-    width: 80,
+    width: 80,    
     height: 40
   },
   textDark: {
@@ -79,14 +79,44 @@ const scanStyles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
     borderColor: themeColor,
-    width: 80,
-    height: 40
+    height: 40,
+    width: 80
   },
   textLight: {
     textAlign: "center",
     margin: 10,
     color: "#000"
-  }
+  },
+  supplmentsBtnDark: {
+    backgroundColor: themeColor,
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: "#fff",
+    alignSelf: 'center'
+  },
+  supplmentsBtnLight:{
+    backgroundColor: "#fff",
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: themeColor,
+    alignSelf: 'center'
+  },
+  supplementTextDark: {
+    textAlign: "center",
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 10,
+    marginTop: 10,
+    color: "#fff"
+  },
+  supplementTextLight: {
+    textAlign: "center",
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 10,
+    marginTop: 10,
+    color: "#000"
+  },
 });
 
 export default scanStyles;
