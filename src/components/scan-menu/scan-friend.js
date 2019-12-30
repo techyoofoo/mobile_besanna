@@ -9,41 +9,80 @@ import {
 } from "react-native";
 import scanStyles, { themeColor } from "../../styles/scan-styles";
 import appStyleSheets from "../../styles/styles";
+import { base_url } from "../../constants";
 
 export default class ScanAFriend extends Component {
-    state = {
-        allBtnColorStatus: false,
-        oilBtnColorStatus: false,
-        supplementsBtnColorStatus: false
-    }
+  state = {
+    allBtnColorStatus: false,
+    oilBtnColorStatus: false,
+    supplementsBtnColorStatus: false,
+    txtBoxEmailId: "",
+    txtBoxName: ""
+  };
+  onGoBtnCLick = () => {
+    console.log(
+      "------",
+      this.state.txtBoxName,
+      "--",
+      this.state.txtBoxEmailId,
+      this.state.supplementsBtnColorStatus,
+      "--",
+      this.state.oilBtnColorStatus
+    );
+    fetch(`${base_url}add-a-friend`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: this.state.txtBoxName,
+        profile_pic: "Peter_ch Profile picture",
+        email_id: this.state.txtBoxEmailId,
+        gender_type: "5e00ac04a2c3f2e2f08bcb88",
+        date_of_birth: "1990-06-02",
+        products_selected: ["All"]
+      })
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        console.log("------", responseJson);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
   render() {
-      let btncolor, textColor;
-      const { allBtnColorStatus, oilBtnColorStatus, supplementsBtnColorStatus} = this.state;
-      if(allBtnColorStatus === false) {
-        btncolor = scanStyles.btnDarkBackground;
-          textColor= scanStyles.textDark;
-      } else{
-        btncolor = scanStyles.btnLightBackground;
-          textColor= scanStyles.textLight
-      }
-      
-      let oilBtnColor, oilTextColor;
-      if(oilBtnColorStatus === false) {
-          oilBtnColor = scanStyles.btnDarkBackground;
-          oilTextColor = scanStyles.textDark;
-      }else {
-          oilBtnColor = scanStyles.btnLightBackground;
-          oilTextColor = scanStyles.textLight
-      }
+    let btncolor, textColor;
+    const {
+      allBtnColorStatus,
+      oilBtnColorStatus,
+      supplementsBtnColorStatus
+    } = this.state;
+    if (allBtnColorStatus === false) {
+      btncolor = scanStyles.btnDarkBackground;
+      textColor = scanStyles.textDark;
+    } else {
+      btncolor = scanStyles.btnLightBackground;
+      textColor = scanStyles.textLight;
+    }
 
-      let supplmntBtnColor, supplmntTextColor;
-      if(supplementsBtnColorStatus === false){
-          supplmntBtnColor = scanStyles.supplmentsBtnDark;
-          supplmntTextColor = scanStyles.supplementTextDark;
-      }else {
-          supplmntBtnColor = scanStyles.supplmentsBtnLight;
-          supplmntTextColor = scanStyles.textLight;
-      }
+    let oilBtnColor, oilTextColor;
+    if (oilBtnColorStatus === false) {
+      oilBtnColor = scanStyles.btnDarkBackground;
+      oilTextColor = scanStyles.textDark;
+    } else {
+      oilBtnColor = scanStyles.btnLightBackground;
+      oilTextColor = scanStyles.textLight;
+    }
+
+    let supplmntBtnColor, supplmntTextColor;
+    if (supplementsBtnColorStatus === false) {
+      supplmntBtnColor = scanStyles.supplmentsBtnDark;
+      supplmntTextColor = scanStyles.supplementTextDark;
+    } else {
+      supplmntBtnColor = scanStyles.supplmentsBtnLight;
+      supplmntTextColor = scanStyles.textLight;
+    }
 
     return (
       <View>
@@ -131,16 +170,20 @@ export default class ScanAFriend extends Component {
               style={appStyleSheets.textBoxStyle}
               placeholder="Name"
               keyboardType="default"
-              onChangeText={() => {}}
-              value=""
+              onChangeText={valName => {
+                this.setState({ txtBoxName: valName });
+              }}
+              value={this.state.txtBoxName}
             />
             <View style={{ paddingTop: 10 }} />
             <TextInput
               style={appStyleSheets.textBoxStyle}
               placeholder="Enter Email id"
               keyboardType="email-address"
-              onChangeText={() => {}}
-              value=""
+              onChangeText={valEmailId => {
+                this.setState({ txtBoxEmailId: valEmailId });
+              }}
+              value={this.state.txtBoxEmailId}
             />
             <View style={{ paddingTop: 10 }} />
           </View>
@@ -148,16 +191,24 @@ export default class ScanAFriend extends Component {
             <TouchableOpacity
               style={btncolor}
               activeOpacity={0.5}
-              onPress={() => {(allBtnColorStatus) ? this.setState({allBtnColorStatus: false}): this.setState({allBtnColorStatus: true})}}
+              onPress={() => {
+                allBtnColorStatus
+                  ? this.setState({ allBtnColorStatus: false })
+                  : this.setState({ allBtnColorStatus: true });
+              }}
             >
               <Text style={textColor}>All</Text>
             </TouchableOpacity>
           </View>
           <View style={{ alignItems: "center", paddingTop: 20 }}>
             <TouchableOpacity
-             style={oilBtnColor}
+              style={oilBtnColor}
               activeOpacity={0.5}
-              onPress={() => {(oilBtnColorStatus) ? this.setState({oilBtnColorStatus: false}) : this.setState({oilBtnColorStatus: true})}}
+              onPress={() => {
+                oilBtnColorStatus
+                  ? this.setState({ oilBtnColorStatus: false })
+                  : this.setState({ oilBtnColorStatus: true });
+              }}
             >
               <Text style={oilTextColor}>Oils</Text>
             </TouchableOpacity>
@@ -166,7 +217,11 @@ export default class ScanAFriend extends Component {
             <TouchableOpacity
               style={supplmntBtnColor}
               activeOpacity={0.5}
-              onPress={() => {(supplementsBtnColorStatus) ? this.setState({supplementsBtnColorStatus: false}): this.setState({supplementsBtnColorStatus: true})}}
+              onPress={() => {
+                supplementsBtnColorStatus
+                  ? this.setState({ supplementsBtnColorStatus: false })
+                  : this.setState({ supplementsBtnColorStatus: true });
+              }}
             >
               <Text style={supplmntTextColor}>Supplements</Text>
             </TouchableOpacity>
@@ -175,7 +230,7 @@ export default class ScanAFriend extends Component {
             <TouchableOpacity
               style={scanStyles.btnScan}
               activeOpacity={0.5}
-              onPress={() => {}}
+              onPress={this.onGoBtnCLick}
             >
               <Text style={scanStyles.txtScan}>Go</Text>
             </TouchableOpacity>

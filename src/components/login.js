@@ -13,6 +13,7 @@ import appStyleSheets from "../styles/styles";
 import HeaderScreen from "./header-screen";
 
 export default class LoginScreen extends Component {
+  
   state = {
     txtLoginEmailId: "surendra",
     txtLoginPassword: "123",
@@ -21,6 +22,9 @@ export default class LoginScreen extends Component {
     errorLoginPass: true,
     msgValidate: ""
   };
+  
+  
+  
   // componentDidMount() {
   //   return fetch("https://facebook.github.io/react-native/movies.json")
   //     .then(response => response.json())
@@ -39,40 +43,33 @@ export default class LoginScreen extends Component {
   // }
 
   btnLoginClick = () => {
-    // const { txtLoginEmailId, txtLoginPassword } = this.state;
-    // console.log("Email", txtLoginEmailId);
-    // if (this.state.txtLoginEmailId.trim() != 0) {
-    //   this.setState({ errorLoginEmailId: true });
+    console.log("All fields filled");
+    this.props.navigation.navigate("AppScanner");
+
+    //   fetch("http://192.168.1.103:9002/validate-user", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     user_name: this.state.txtLoginEmailId,
+    //     user_pass: this.state.txtLoginPassword
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(responseJson => {
+
+    //     if (responseJson.Message === "Success") {
+    //       this.props.navigation.navigate("AppScanner");
+    //     } else {
+    //       this.setState({ msgValidate: responseJson.Message });
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
     // }
-    // // else if (this.state.txtLoginPassword.trim() !== 0) {
-    // //   this.setState({ errorLoginPass: true });
-    // // }
-    // else {
-      console.log("All fields filled");
-      fetch("http://192.168.1.103:9002/validate-user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user_name: this.state.txtLoginEmailId,
-        user_pass: this.state.txtLoginPassword
-      })
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        
-        if (responseJson.Message === "Success") {
-          this.props.navigation.navigate("AppScanner");
-        } else {
-          this.setState({ msgValidate: responseJson.Message });
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    // }
-    
+
     //this.props.navigation.navigate("AppScanner")
   };
 
