@@ -46,7 +46,7 @@ export default class ActivateScanner extends Component {
         <TouchableOpacity
           style={appStyleSheets.btnActivateScanner}
           activeOpacity={0.5}
-          onPress={() => {}}
+          onPress={() => this.props.navigation.navigate("PersonalizePerference")}
         >
           <Text
             style={{

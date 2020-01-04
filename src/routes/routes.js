@@ -10,6 +10,7 @@ import MyAccountScreen from "../components/my-account";
 import SelfScanScreen from '../components/scan-menu/self-scan';
 import FriendList from '../components/scan-menu/firends-list';
 import ScanAFriend from '../components/scan-menu/scan-friend';
+import PersonalizePerference from '../components/personalize-preference';
 
 const Routes = createStackNavigator(
   {
@@ -74,6 +75,13 @@ const Routes = createStackNavigator(
       navigationOptions:{
         header:null,
         
+      }
+    },
+    PersonalizePerference:{
+      screen: PersonalizePerference,
+      navigationOptions:{
+        header: null,
+        headerLeft: null
       }
     }
   },
