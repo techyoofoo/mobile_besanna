@@ -11,6 +11,7 @@ import SelfScanScreen from '../components/scan-menu/self-scan';
 import FriendList from '../components/scan-menu/firends-list';
 import ScanAFriend from '../components/scan-menu/scan-friend';
 import PersonalizePerference from '../components/personalize-preference';
+import LoadCamera from '../components/load-camera';
 
 const Routes = createStackNavigator(
   {
@@ -82,6 +83,13 @@ const Routes = createStackNavigator(
       navigationOptions:{
         header: null,
         headerLeft: null
+      }
+    },
+    LoadCamera:{
+      screen: LoadCamera,
+      navigationOptions:{
+        header:null,
+        
       }
     }
   },
