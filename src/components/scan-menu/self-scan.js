@@ -156,7 +156,7 @@ export default class SelfScanScreen extends Component {
             <TouchableOpacity
               style={scanStyles.btnScan}
               activeOpacity={0.5}
-              onPress={() => {}}
+              onPress={() => this.props.navigation.navigate("ScanReport")}
             >
               <Text style={scanStyles.txtScan}>Go</Text>
             </TouchableOpacity>

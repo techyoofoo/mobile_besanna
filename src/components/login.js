@@ -15,7 +15,7 @@ import HeaderScreen from "./header-screen";
 export default class LoginScreen extends Component {
   
   state = {
-    txtLoginEmailId: "surendra",
+    txtLoginEmailId: "admin",
     txtLoginPassword: "123",
     isLoading: true,
     errorLoginEmailId: true,

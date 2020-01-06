@@ -12,6 +12,7 @@ import FriendList from '../components/scan-menu/firends-list';
 import ScanAFriend from '../components/scan-menu/scan-friend';
 import PersonalizePerference from '../components/personalize-preference';
 import LoadCamera from '../components/load-camera';
+import ScanReport from '../components/scan-report';
 
 const Routes = createStackNavigator(
   {
@@ -88,8 +89,14 @@ const Routes = createStackNavigator(
     LoadCamera:{
       screen: LoadCamera,
       navigationOptions:{
-        header:null,
-        
+        header:null,        
+      }
+    },
+    ScanReport:{
+      screen:ScanReport,
+      navigationOptions:{
+        header: null,
+        headerLeft: null
       }
     }
   },
