@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, StatusBar } from "react-native";
+import { Image, StatusBar, ScrollView, TouchableOpacity } from "react-native";
 import {
   Container,
   Header,
@@ -16,95 +16,244 @@ import {
   Title,
   Right
 } from "native-base";
-const cards = [
-  {
-    text: "Cardamom",
-    name: "scanner.png",
-    image: require("../../assets/scanner.png"),
-    benefits: `May help promote clear, healthy looking skin when applied topically
-    Powerful cleansing agent
-    Warm, earthy aroma
-    `
-  },
-  {
-    text: "Lavender Line two",
-    name: "profile.png",
-    image: require("../../assets/profile.png"),
-    benefits: `May help maintain overall gastrointestinal health when ingested
-    Promotes clear breathing and respiratory health when used internally
-    Flavorful spice for cooking and baking`
-  },
-  {
-    text: "Berganot",
-    name: "profile.png",
-    image: require("../../assets/profile.png"),
-    benefits: `Calming and soothing aroma
-    Provides skin purifying benefits
-    Frequently used in massage therapy for its calming benefits`
+// import LoadRecords from './load-records';
+import { base_url } from "../constants";
+
+const LoadRecords = React.lazy(() => import("./load-records"));
+export default class ScanReport extends Component {
+  componentDidMount() {
+    this.loadAllReports();
   }
-];
-export default class DeckSwiperExample extends Component {
-  render() {
+  state = {
+    cards: []
+  };
+  loadAllReports = () => {
+    fetch(`${base_url}get-all-products`)
+      .then(response => response.json())
+      .then(async responseJson => {
+        // console.log('responseJson.data', responseJson.data)
+        // const dt = await responseJson.data;
+        this.setState({ cards: responseJson.data });
+        // return responseJson.movies;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+  render() {    
     return (
-      <Container>
+      <View>
         <StatusBar style={{ backgroundColor: "#416E74" }} />
-        <Header>
-          <Left>
-            <Button transparent>
-              <Icon type="FontAwesome" name="home" />
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{ alignContent: "center" }}>besanna</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon type="FontAwesome" name="bars" />
-            </Button>
-          </Right>
-        </Header>
         <View
           style={{
-            borderColor: "#416E74",
-            borderWidth: 2,
-            borderStyle: "solid",
-            padding: 10,
-            height: 500,
-            backgroundColor: "#416E74",
-            borderRadius: 190,
-            margin: 20
+            flexDirection: "row",
+            justifyContent: "space-around",
+            paddingTop: 30
           }}
         >
-          <View style={{ paddingTop: 30 }} />
-          <DeckSwiper
-            dataSource={cards}
-            renderItem={item => (
-              <Card transparent>
+          <View>
+            <Icon type="FontAwesome" name="home" />
+          </View>
+          <View>
+            <Text style={{ fontSize: 15, fontWeight: "bold" }}>besanna</Text>
+          </View>
+          <View>
+            <Icon type="FontAwesome" name="bars" />
+          </View>
+        </View>
+        <ScrollView>
+          {this.state.cards.map((dtSrc, k) => {
+            return (
+              <View key={k}>
+              <TouchableOpacity onPress={() => {
+                this.props.navigation.navigate('LoadRecords', {
+                  itemName: dtSrc.name
+                });
+                
+              }}>
+                <Card style={{ flex: 0 }} key={k}>
+                <CardItem header bordered>
+                  <Text>{dtSrc.name}</Text>
+                </CardItem>                
                 <CardItem>
                   <Left>
-                    {/* <Thumbnail source={item.image} /> */}
+                    <Thumbnail source={{ uri: dtSrc.image_path }} />
                     <Body>
-                      <Text>{item.text}</Text>
+                      <Text>{dtSrc.benfits}</Text>
+                      {/* <Text note>April 15, 2016</Text> */}
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
-                  {/* <Image source={require(item.image)} style={{height: 200, width: null, flex: 1}}/> */}
 
-                  <Image
-                    style={{ height: 200, width: null, flex: 1 }}
-                    source={item.image}
-                  />
-                  
+                <CardItem style={{ justifyContent: "space-around" }}>
+                  {dtSrc.Topically === 1 ? (
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#995472",
+                        borderColor: "#654662",
+                        float:"left"
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        T
+                      </Text>
+                    </View>
+                  ) : (
+                    <View />
+                  )}
+                  {dtSrc.youngskin === 1 ? (
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#604561",
+                        borderColor: "#bfbeb7",
+                        float:"left"
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff",
+                        }}
+                      >
+                        S
+                      </Text>
+                    </View>
+                  ) : (
+                    <View />
+                  )}
+                  {dtSrc.internally === 1 ? (
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#223849",
+                        borderColor: "#927b85",
+                        float:"left"
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff",
+                        }}
+                      >
+                        I
+                      </Text>
+                    </View>
+                  ) : (
+                    <View />
+                  )}
+                  {dtSrc.Aromatic === 1 ? (
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#c89ba2",
+                        borderColor: "#b86a80",
+                        float:"left"
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        A
+                      </Text>
+                    </View>
+                  ) : (
+                    <View />
+                  )}
+                  {dtSrc.Dilute === 1 ? (
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#b4b9bb",
+                        borderColor: "#747575",
+                        float:"left"
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        D
+                      </Text>
+                    </View>
+                  ) : (
+                    <View />
+                  )}
+
+                  <View
+                    style={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: 30,
+                      height: 30,
+                      borderRadius: 15,
+                      backgroundColor: "#cecec6",
+                      borderColor: "#cbbfb6",
+                      float:"left"
+                    }}
+                  >
+                    <Text
+                      style={{
+                        textAlignVertical: "center",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "#fff"
+                      }}
+                    >
+                      N
+                    </Text>
+                  </View>
                 </CardItem>
-                <CardItem>
-                <Text style={{flexWrap: 'wrap', alignItems: 'flex-start'}}>{item.benefits}</Text>
-                </CardItem>
+              
               </Card>
-            )}
-          />
-        </View>
-      </Container>
+              </TouchableOpacity>
+              </View>
+            );
+          })}
+        </ScrollView>
+      </View>
     );
   }
 }

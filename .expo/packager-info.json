@@ -1,10 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 7929,
-  "expoServerNgrokUrl": "https://4g-mu8.surendraraj3.mobile-besanna.exp.direct",
-  "packagerNgrokUrl": "https://packager.4g-mu8.surendraraj3.mobile-besanna.exp.direct",
-  "ngrokPid": 8092,
-  "webpackServerPort": null
+  "packagerPort": 19003,
+  "packagerPid": 15571,
+  "expoServerNgrokUrl": "https://r4-65j.surendraraj3.mobile-besanna.exp.direct",
+  "packagerNgrokUrl": "https://packager.r4-65j.surendraraj3.mobile-besanna.exp.direct",
+  "ngrokPid": 15689
 }
