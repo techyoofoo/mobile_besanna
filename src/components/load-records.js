@@ -23,7 +23,7 @@ export default class LoadRecords extends Component {
     this.loadAllReports();
     const { navigation } = this.props;
     const propName = navigation.getParam("itemName"); //JSON.stringify();
-    console.log("------", JSON.stringify(navigation.getParam("itemName")));
+    // console.log("------", JSON.stringify(navigation.getParam("itemName")));
     this.loadAllReports(propName);
   }
   state = {
