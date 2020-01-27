@@ -6,7 +6,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
-  Dimensions
+  Dimensions,
+  ImageBackground
 } from "react-native";
 import Swiper from "react-native-swiper";
 import {
@@ -26,7 +27,7 @@ import {
 // import TestReports from "./test-records";
 import { base_url } from "../constants";
 
-const { width } = Dimensions.get("window");
+const { width, windowHeight } = Dimensions.get("window");
 
 const styles = {
   container: {
@@ -43,12 +44,15 @@ const styles = {
   },
 
   slide1: {
-    flex: 1,
+    paddingTop: 40,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ccc",
-    borderRadius: 225,
-    margin: 10
+    alignItems: "center"
+    // backgroundColor: "#fff",
+    // borderColor:"#000",
+    // elevation: 1,
+    // borderWidth:2,
+    // borderRadius: 285,
+    // margin: 50,
   },
 
   slide2: {
@@ -67,6 +71,11 @@ const styles = {
 
   text: {
     color: "#000",
+    fontSize: 30,
+    fontWeight: "bold"
+  },
+  sliderProducttextColor: {
+    color: "#253646",
     fontSize: 30,
     fontWeight: "bold"
   },
@@ -90,7 +99,7 @@ export default class ScanReport extends Component {
     fetch(`${base_url}get-all-products`)
       .then(response => response.json())
       .then(async responseJson => {
-        console.log("responseJson.data", responseJson.data);
+        // console.log("responseJson.data", responseJson.data);
         // const dt = await responseJson.data;
         this.setState({ cards: responseJson.data });
         // return responseJson.movies;
@@ -109,7 +118,55 @@ export default class ScanReport extends Component {
     // Subtract half of symbol size to center it on the circle
     const x = radius * Math.cos(angleRad) + center + 15 / 2;
     const y = radius * Math.sin(angleRad) + center + 15 / 2;
-    console.log("------", x, "-", y);
+    const d = new Date();
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    const axisSettings = [
+      {
+        axis: "first",
+        bottom: 75,
+        left: 80
+      },
+      {
+        axis: "second",
+        bottom: 40,
+        left: 100
+      },
+      {
+        axis: "third",
+        bottom: 20,
+        left: 140
+      },
+      {
+        axis: "four",
+        bottom: 20,
+        left: 200
+      },
+      {
+        axis: "five",
+        bottom: 40,
+        right: 120
+      },
+      {
+        axis: "six",
+        bottom: 70,
+        right: 95
+      }
+    ];
+    // console.log("------", x, "-", y);
+    let curveArray = [];
     return (
       <View style={styles.container}>
         <StatusBar style={{ backgroundColor: "#416E74" }} />
@@ -121,224 +178,250 @@ export default class ScanReport extends Component {
           }}
         >
           <View>
-            <Icon type="FontAwesome" name="home" />
+            <Image source={require("../../assets/home.png")} />
           </View>
           <View>
-            <Text style={{ fontSize: 15, fontWeight: "bold" }}>besanna</Text>
+            {/* <Text style={{ fontSize: 15, fontWeight: "bold" }}>besanna</Text> */}
+            <Image
+              source={require("../../assets/besanna_logo.png")}
+              style={{ width: width / 3, height: 53, resizeMode: "center" }}
+            />
           </View>
           <View>
-            <Icon type="FontAwesome" name="bars" />
+            <Image source={require("../../assets/menu.png")} />
           </View>
         </View>
-        <Swiper style={styles.wrapper} height={400} autoplay={true}>
-          {this.state.cards.map((dtSrc, k) => {
-            return (
-              <View style={styles.slide1} key={k}>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.props.navigation.navigate("LoadRecords", {
-                      itemName: dtSrc.name
-                    });
-                  }}
-                >
-                  <Image
-                    style={{
-                      width: 200,
-                      height: 200,
-                      backgroundColor: "#737373",
-                      borderRadius: 100,
-                      borderWidth: 2,
-                      resizeMode:'contain'
-                    }}
-                    source={{ uri: dtSrc.image_path }}
-                  />
-            
-                  <Text style={styles.text}>{dtSrc.name}</Text>
-                </TouchableOpacity>
-                <Text
-                  style={{
-                    fontSize: 13,
-                    paddingTop: 10,
-                    flexWrap: "wrap",
-                    alignItems: "flex-start",
-                    margin: 5
-                  }}
-                >
-                  {dtSrc.benfits}
-                </Text>
-                <View
-                  style={{
-                    // margin: 20,
-                    // borderBottomLeftRadius: width,
-                    // borderBottomRightRadius: width
-                    // borderWidth: 3
-                  }}
-                >
-                  {dtSrc.Topically === 1 ? (
-                    <View style={{ position: "absolute",
-                    bottom: 16, left: 50 }}>
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#995472",
-                          borderColor: "#654662",
-                          float: "left"
-                        }}
-                      >
-                        <Text
-                          style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
-                          }}
-                        >
-                          T
-                        </Text>
-                      </View>
-                    </View>
-                  ) : (
-                    <View />
-                  )}
-                  {dtSrc.youngskin === 1 ? (
-                    <View style={{ position: "absolute",
-                    top: 16, left: 50 }}>
-                    <View
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#604561",
-                        borderColor: "#bfbeb7",
-                        float: "left",
-                        x: 290.5,
-                        y: 156.5
-                      }}
-                    >
-                      <Text
-                        style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
-                        }}
-                      >
-                        S
-                      </Text>
-                    </View>
-                    </View>
-                  ) : (
-                    <View />
-                  )}
-                  {dtSrc.internally === 1 ? (
-                    <View style={{ position: "absolute",
-                    top: 26, left: 80 }}>
-                    <View
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#223849",
-                        borderColor: "#927b85",
-                        float: "right"
-                      }}
-                    >
-                      <Text
-                        style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
-                        }}
-                      >
-                        I
-                      </Text>
-                    </View>
-                    </View>
-                  ) : (
-                    <View />
-                  )}
-                  {dtSrc.Aromatic === 1 ? (
-                    <View style={{ position: "absolute",
-                    top: 26, left: 110  }}>
-                    <View
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#c89ba2",
-                        borderColor: "#b86a80",
-                        float: "right"
-                      }}
-                    >
-                      <Text
-                        style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
-                        }}
-                      >
-                        A
-                      </Text>
-                    </View>
-                    </View>
-                  ) : (
-                    <View />
-                  )}
-                  {dtSrc.Dilute === 1 ? (
-                    <View style={{ position: "absolute",
-                    top: 30, left: 130   }}>
-                    <View
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#b4b9bb",
-                        borderColor: "#747575",
-                        float: "right"
-                      }}
-                    >
-                      <Text
-                        style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
-                        }}
-                      >
-                        D
-                      </Text>
-                    </View>
-                    </View>
-                  ) : (
-                    <View />
-                  )}
+        <View style={{ marginTop: 10, marginLeft: 20 }}>
+          <Text style={styles.sliderProducttextColor}>Scan Result</Text>
+          <Text style={{ color: "#ccc", fontSize: 15 }}>
+            {months[d.getMonth()] +
+              " " +
+              d.getDay() +
+              ", " +
+              d.getFullYear() +
+              "  " +
+              d.getHours() +
+              ":" +
+              d.getMinutes()}
+          </Text>
+        </View>
+        {/* justifyContent:'flex-start',alignItems:'flex-start' <ScrollView contentContainerStyle={{
+            height: 1000,
+            paddingVertical: 30,
+            paddingTop: 60
+          }}> */}
+        <ImageBackground
+          style={{ width: "100%", height: "100%", resizeMode: "contain" }}
+          source={require("../../assets/bg.png")}
+        >
+          <Swiper style={styles.wrapper} height={400} autoplay={true}>
+            {this.state.cards.map((dtSrc, k) => {
+              // console.log("-----", dtSrc.Aromatic);
+              if (dtSrc.Topically === 1) curveArray.push("T");
+              if (dtSrc.youngskin === 1) curveArray.push("S");
+              if (dtSrc.internally === 1) curveArray.push("I");
+              if (dtSrc.Aromatic === 1) curveArray.push("A");
+              if (dtSrc.Dilute === 1) curveArray.push("D");
+              if (dtSrc.nodilution === 1) curveArray.push("N");
 
-<View style={{ position: "absolute",
-                    top: 20, left: 140   }}>
+              // console.log("-----", dtSrc.Aromatic, "---", k, "****",curveArray);
+              const distinctData = [...new Set(curveArray)];
+              // console.log("-----", distinctData);
+              // "Aromatic" : 1,
+              // "Topically" : 1,
+              // "internally" : 0,
+              // "Dilute" : 0,
+              // "youngskin" : 0,
+              // "nodilution" : 1,
+              return (
+                <View style={styles.slide1} key={k}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.props.navigation.navigate("LoadRecords", {
+                        itemName: dtSrc.name
+                      });
+                    }}
+                    style={{
+                      width: 180,
+                      height: 180,
+                      backgroundColor: "#cecec6",
+                      borderColor: "#c3c3c1",
+                      borderRadius: 90,
+                      borderWidth: 2
+                    }}
+                  >
+                    <Image
+                      style={{
+                        // width: 200,
+                        height: 200,
+                        resizeMode: "contain"
+                      }}
+                      source={{ uri: dtSrc.image_path }}
+                    />
+                  </TouchableOpacity>
+                  <View style={{ marginTop: 30 }}>
+                    <Text style={styles.sliderProducttextColor}>
+                      {dtSrc.name}
+                    </Text>
+                  </View>
                   <View
                     style={{
+                      marginTop: 15,
+                      marginLeft: 90,
+                      marginRight: 90,
+                      borderRadius: 339 / 2
+                    }}
+                  >
+                    <Text
+                      style={{
+                        color: "#253646",
+                        fontSize: 13,
+                        flexWrap: "wrap"
+                      }}
+                    >
+                      {dtSrc.benfits}
+                    </Text>
+                  </View>
+                  {/* Test Layout curve*/}
+                  {/* <View style={{ paddingTop: 10 }}></View> */}
+
+                  <View
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: 15,
+                      backgroundColor: "#995472",
+                      borderColor: "#654662",
+                      bottom: 75,
+                      left: 80,
+                      position: "absolute",
                       justifyContent: "center",
-                      alignItems: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Text
+                      style={{
+                        textAlignVertical: "center",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "#fff"
+                      }}
+                    >
+                      T
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: 15,
+                      backgroundColor: "#604561",
+                      borderColor: "#bfbeb7",
+                      bottom: 40,
+                      left: 100,
+                      position: "absolute",
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Text
+                      style={{
+                        textAlignVertical: "center",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "#fff"
+                      }}
+                    >
+                      S
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: 15,
+                      backgroundColor: "#223849",
+                      borderColor: "#927b85",
+                      bottom: 20,
+                      left: 140,
+                      position: "absolute",
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Text
+                      style={{
+                        textAlignVertical: "center",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "#fff"
+                      }}
+                    >
+                      I
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: 15,
+                      backgroundColor: "#c89ba2",
+                      borderColor: "#b86a80",
+                      bottom: 20,
+                      left: 200,
+                      position: "absolute",
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Text
+                      style={{
+                        textAlignVertical: "center",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "#fff"
+                      }}
+                    >
+                      A
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: 15,
+                      backgroundColor: "#b4b9bb",
+                      borderColor: "#747575",
+                      bottom: 40,
+                      right: 120,
+                      position: "absolute",
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Text
+                      style={{
+                        textAlignVertical: "center",
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        color: "#fff"
+                      }}
+                    >
+                      D
+                    </Text>
+                  </View>
+                  <View
+                    style={{
                       width: 30,
                       height: 30,
                       borderRadius: 15,
                       backgroundColor: "#cecec6",
                       borderColor: "#cbbfb6",
-                      float: "right"
+                      bottom: 70,
+                      right: 95,
+                      position: "absolute",
+                      justifyContent: "center",
+                      alignItems: "center"
                     }}
                   >
                     <Text
@@ -352,12 +435,22 @@ export default class ScanReport extends Component {
                       N
                     </Text>
                   </View>
-                  </View>
+                  <View
+                    style={{
+                      paddingTop: 20,
+                      borderRadius: 339 / 2,
+                      // borderWidth: 2,
+                      width: 150,
+                      height: 150
+                    }}
+                  ></View>
                 </View>
-              </View>
-            );
-          })}
-        </Swiper>
+              );
+            })}
+          </Swiper>
+        </ImageBackground>
+        {/* </ScrollView> */}
+        {/* <View style={{position: 'absolute', left: 0, right: 0, bottom: 0}}><Text>My fixed footer</Text></View> */}
       </View>
     );
   }

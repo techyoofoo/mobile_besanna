@@ -41,7 +41,7 @@ export default class LoadCamera extends Component {
   takePicture = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync();
-      console.log('-------Photo------', photo)
+      // console.log('-------Photo------', photo)
         this.props.navigation.navigate("ActivateScanner")
     }
   }
