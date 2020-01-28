@@ -9,7 +9,8 @@ import {
   Dimensions,
   ImageBackground
 } from "react-native";
-import Swiper from "react-native-swiper";
+// import Swiper from "react-native-swiper";
+import SwiperFlatList from "react-native-swiper-flatlist";
 import {
   Container,
   Header,
@@ -76,7 +77,7 @@ const styles = {
   },
   sliderProducttextColor: {
     color: "#253646",
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: "bold"
   },
 
@@ -165,7 +166,10 @@ export default class ScanReport extends Component {
         right: 95
       }
     ];
-    // console.log("------", x, "-", y);
+    console.log("------", {
+      width: Dimensions.get("window").width / 2,
+      height: Dimensions.get("window").height / 1.5
+    });
     let curveArray = [];
     return (
       <View style={styles.container}>
@@ -177,21 +181,21 @@ export default class ScanReport extends Component {
             paddingTop: 30
           }}
         >
-          <View>
+          <View style={{ paddingTop: 12 }}>
             <Image source={require("../../assets/home.png")} />
           </View>
           <View>
             {/* <Text style={{ fontSize: 15, fontWeight: "bold" }}>besanna</Text> */}
             <Image
               source={require("../../assets/besanna_logo.png")}
-              style={{ width: width / 3, height: 53, resizeMode: "center" }}
+              style={{ width: width / 2, height: 53, resizeMode: "center" }}
             />
           </View>
-          <View>
+          <View style={{ paddingTop: 12 }}>
             <Image source={require("../../assets/menu.png")} />
           </View>
         </View>
-        <View style={{ marginTop: 10, marginLeft: 20 }}>
+        <View style={{ marginTop: 5, marginLeft: 20 }}>
           <Text style={styles.sliderProducttextColor}>Scan Result</Text>
           <Text style={{ color: "#ccc", fontSize: 15 }}>
             {months[d.getMonth()] +
@@ -205,252 +209,269 @@ export default class ScanReport extends Component {
               d.getMinutes()}
           </Text>
         </View>
-        {/* justifyContent:'flex-start',alignItems:'flex-start' <ScrollView contentContainerStyle={{
-            height: 1000,
-            paddingVertical: 30,
-            paddingTop: 60
-          }}> */}
-        <ImageBackground
-          style={{ width: "100%", height: "100%", resizeMode: "contain" }}
-          source={require("../../assets/bg.png")}
+        {/* . */}
+        <View
+          style={{
+            justifyContent: "center",
+            alignContent: "center",
+            marginTop: 30,
+            marginLeft: 95
+          }}
         >
-          <Swiper style={styles.wrapper} height={400} autoplay={true}>
-            {this.state.cards.map((dtSrc, k) => {
-              // console.log("-----", dtSrc.Aromatic);
-              if (dtSrc.Topically === 1) curveArray.push("T");
-              if (dtSrc.youngskin === 1) curveArray.push("S");
-              if (dtSrc.internally === 1) curveArray.push("I");
-              if (dtSrc.Aromatic === 1) curveArray.push("A");
-              if (dtSrc.Dilute === 1) curveArray.push("D");
-              if (dtSrc.nodilution === 1) curveArray.push("N");
-
-              // console.log("-----", dtSrc.Aromatic, "---", k, "****",curveArray);
-              const distinctData = [...new Set(curveArray)];
-              // console.log("-----", distinctData);
-              // "Aromatic" : 1,
-              // "Topically" : 1,
-              // "internally" : 0,
-              // "Dilute" : 0,
-              // "youngskin" : 0,
-              // "nodilution" : 1,
-              return (
-                <View style={styles.slide1} key={k}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.props.navigation.navigate("LoadRecords", {
-                        itemName: dtSrc.name
-                      });
-                    }}
-                    style={{
-                      width: 180,
-                      height: 180,
-                      backgroundColor: "#cecec6",
-                      borderColor: "#c3c3c1",
-                      borderRadius: 90,
-                      borderWidth: 2
-                    }}
-                  >
-                    <Image
+          <View
+            style={{
+              width: Dimensions.get("window").width / 2 + 30,
+              height: Dimensions.get("window").height / 1.5 + 30,
+              // borderRadius: 100,
+              borderBottomEndRadius: 228,
+              borderTopStartRadius: 228,
+              borderTopEndRadius: 228,
+              borderBottomStartRadius: 228,
+              borderBottomLeftRadius: 228,
+              borderBottomRightRadius: 228,
+              backgroundColor: "white",
+              padding: 10,
+              justifyContent: "space-between",
+              alignItems: "center",
+              elevation: 15,
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 0.5 * 20 },
+              shadowOpacity: 0.3,
+              shadowRadius: 0.8 * 20,
+              zIndex: 0
+            }}
+          >
+            {/* <Swiper style={styles.wrapper} height={400} autoplay={true}> */}
+            <SwiperFlatList
+              autoplay
+              autoplayDelay={2}
+              autoplayLoop
+              index={2}
+              // showPagination
+            >
+              {this.state.cards.map((dtSrc, k) => {
+                return (
+                  <View key={k}>
+                    <View
                       style={{
-                        // width: 200,
-                        height: 200,
-                        resizeMode: "contain"
+                        borderRadius: 100,
+                        width: 170,
+                        height: 170,
+                        backgroundColor: "#cecec6",
+                        borderColor: "#c3c3c1",
+                        justifyContent: "center",
+                        margin: 20,
+                        elevation: 10,
+                        shadowColor: "black",
+                        shadowOffset: { width: 0, height: 0.5 * 10 },
+                        shadowOpacity: 0.6,
+                        shadowRadius: 0.8 * 10
                       }}
-                      source={{ uri: dtSrc.image_path }}
-                    />
-                  </TouchableOpacity>
-                  <View style={{ marginTop: 30 }}>
-                    <Text style={styles.sliderProducttextColor}>
+                    >
+                      <Image
+                        style={{
+                          // width: 200,
+                          height: 220,
+                          resizeMode: "contain"
+                        }}
+                        source={{ uri: dtSrc.image_path }}
+                      />
+                    </View>
+                    <Text
+                      style={[
+                        styles.sliderProducttextColor,
+                        { textAlign: "center" }
+                      ]}
+                    >
                       {dtSrc.name}
                     </Text>
-                  </View>
-                  <View
-                    style={{
-                      marginTop: 15,
-                      marginLeft: 90,
-                      marginRight: 90,
-                      borderRadius: 339 / 2
-                    }}
-                  >
-                    <Text
-                      style={{
-                        color: "#253646",
-                        fontSize: 13,
-                        flexWrap: "wrap"
-                      }}
-                    >
-                      {dtSrc.benfits}
-                    </Text>
-                  </View>
-                  {/* Test Layout curve*/}
-                  {/* <View style={{ paddingTop: 10 }}></View> */}
 
-                  <View
-                    style={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: 15,
-                      backgroundColor: "#995472",
-                      borderColor: "#654662",
-                      bottom: 75,
-                      left: 80,
-                      position: "absolute",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Text
+                    <View
                       style={{
-                        textAlignVertical: "center",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        color: "#fff"
+                        borderRadius: 100,
+                        height: 200,
+                        width: 200,
+                        backgroundColor: "#fff",
+                        margin: 10
+                        // position: "absolute"
+                        // justifyContent: "space-around"
                       }}
                     >
-                      T
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: 15,
-                      backgroundColor: "#604561",
-                      borderColor: "#bfbeb7",
-                      bottom: 40,
-                      left: 100,
-                      position: "absolute",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Text
+                      <Text
+                        style={{
+                          color: "#253646",
+                          fontSize: 12,
+                          textAlign: "center",
+                          flexWrap: "wrap"
+                          // position: "absolute"
+                          // alignItems: "center"
+                        }}
+                      >
+                        {dtSrc.benfits}
+                      </Text>
+                    </View>
+                    <View
                       style={{
-                        textAlignVertical: "center",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        color: "#fff"
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#995472",
+                        borderColor: "#654662",
+                        bottom: 80,
+                        left: 10,
+                        position: "relative",
+                        justifyContent: "center",
+                        alignItems: "center"
                       }}
                     >
-                      S
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: 15,
-                      backgroundColor: "#223849",
-                      borderColor: "#927b85",
-                      bottom: 20,
-                      left: 140,
-                      position: "absolute",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Text
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        T
+                      </Text>
+                    </View>
+
+                    <View
                       style={{
-                        textAlignVertical: "center",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        color: "#fff"
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#604561",
+                        borderColor: "#bfbeb7",
+                        bottom: 20,
+                        position: "absolute",
+                        zIndex: 1,
+                        // zIndex: 999,
+                        left: 35,
+                        position: "absolute",
+                        justifyContent: "center",
+                        alignItems: "center"
                       }}
                     >
-                      I
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: 15,
-                      backgroundColor: "#c89ba2",
-                      borderColor: "#b86a80",
-                      bottom: 20,
-                      left: 200,
-                      position: "absolute",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Text
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        S
+                      </Text>
+                    </View>
+                    <View
                       style={{
-                        textAlignVertical: "center",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        color: "#fff"
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#223849",
+                        borderColor: "#927b85",
+                        bottom: 0,
+                        left: 70,
+                        position: "absolute",
+                        justifyContent: "center",
+                        alignItems: "center"
                       }}
                     >
-                      A
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: 15,
-                      backgroundColor: "#b4b9bb",
-                      borderColor: "#747575",
-                      bottom: 40,
-                      right: 120,
-                      position: "absolute",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Text
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        I
+                      </Text>
+                    </View>
+                    <View
                       style={{
-                        textAlignVertical: "center",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        color: "#fff"
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#c89ba2",
+                        borderColor: "#b86a80",
+                        bottom: 0,
+                        left: 120,
+                        position: "absolute",
+                        justifyContent: "center",
+                        alignItems: "center"
                       }}
                     >
-                      D
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: 15,
-                      backgroundColor: "#cecec6",
-                      borderColor: "#cbbfb6",
-                      bottom: 70,
-                      right: 95,
-                      position: "absolute",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Text
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        A
+                      </Text>
+                    </View>
+                    <View
                       style={{
-                        textAlignVertical: "center",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        color: "#fff"
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#b4b9bb",
+                        borderColor: "#747575",
+                        bottom: 20,
+                        left: 160,
+                        position: "absolute",
+                        justifyContent: "center",
+                        alignItems: "center"
                       }}
                     >
-                      N
-                    </Text>
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        D
+                      </Text>
+                    </View>
+                    <View
+                      style={{
+                        width: 30,
+                        height: 30,
+                        borderRadius: 15,
+                        backgroundColor: "#cecec6",
+                        borderColor: "#cbbfb6",
+                        bottom: 50,
+                        left: 180,
+                        position: "absolute",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlignVertical: "center",
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          color: "#fff"
+                        }}
+                      >
+                        N
+                      </Text>
+                    </View>
                   </View>
-                  <View
-                    style={{
-                      paddingTop: 20,
-                      borderRadius: 339 / 2,
-                      // borderWidth: 2,
-                      width: 150,
-                      height: 150
-                    }}
-                  ></View>
-                </View>
-              );
-            })}
-          </Swiper>
-        </ImageBackground>
-        {/* </ScrollView> */}
-        {/* <View style={{position: 'absolute', left: 0, right: 0, bottom: 0}}><Text>My fixed footer</Text></View> */}
+                );
+              })}
+              {/* </Swiper> */}
+            </SwiperFlatList>
+          </View>
+        </View>
+        {/* . */}
       </View>
     );
   }
