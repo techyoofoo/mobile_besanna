@@ -252,31 +252,39 @@ export default class ScanReport extends Component {
               {this.state.cards.map((dtSrc, k) => {
                 return (
                   <View key={k}>
-                    <View
-                      style={{
-                        borderRadius: 100,
-                        width: 170,
-                        height: 170,
-                        backgroundColor: "#cecec6",
-                        borderColor: "#c3c3c1",
-                        justifyContent: "center",
-                        margin: 20,
-                        elevation: 10,
-                        shadowColor: "black",
-                        shadowOffset: { width: 0, height: 0.5 * 10 },
-                        shadowOpacity: 0.6,
-                        shadowRadius: 0.8 * 10
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.props.navigation.navigate("LoadRecords", {
+                          itemName: dtSrc.name
+                        });
                       }}
                     >
-                      <Image
+                      <View
                         style={{
-                          // width: 200,
-                          height: 220,
-                          resizeMode: "contain"
+                          borderRadius: 100,
+                          width: 170,
+                          height: 170,
+                          backgroundColor: "#cecec6",
+                          borderColor: "#c3c3c1",
+                          justifyContent: "center",
+                          margin: 20,
+                          elevation: 10,
+                          shadowColor: "black",
+                          shadowOffset: { width: 0, height: 0.5 * 10 },
+                          shadowOpacity: 0.6,
+                          shadowRadius: 0.8 * 10
                         }}
-                        source={{ uri: dtSrc.image_path }}
-                      />
-                    </View>
+                      >
+                        <Image
+                          style={{
+                            // width: 200,
+                            height: 220,
+                            resizeMode: "contain"
+                          }}
+                          source={{ uri: dtSrc.image_path }}
+                        />
+                      </View>
+                    </TouchableOpacity>
                     <Text
                       style={[
                         styles.sliderProducttextColor,

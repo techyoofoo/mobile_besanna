@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, StatusBar, ScrollView, TouchableOpacity } from "react-native";
+import { Image, StatusBar, ScrollView, TouchableOpacity, Dimensions } from "react-native";
 import {
   Container,
   Header,
@@ -18,6 +18,7 @@ import {
 } from "native-base";
 import { base_url } from "../constants";
 
+const { width, windowHeight } = Dimensions.get("window");
 export default class LoadRecords extends Component {
   componentDidMount() {
     this.loadAllReports();
@@ -33,7 +34,7 @@ export default class LoadRecords extends Component {
     fetch(`${base_url}get-product-by-name/${propName}`)
       .then(response => response.json())
       .then(async responseJson => {
-        console.log("responseJson.data", responseJson);
+        // console.log("responseJson.data", responseJson);
         // const dt = await responseJson.data;
         this.setState({ reportInfo: responseJson.data });
         // return responseJson.movies;
@@ -53,14 +54,18 @@ export default class LoadRecords extends Component {
             paddingTop: 30
           }}
         >
-          <View>
-            <Icon type="FontAwesome" name="home" />
+          <View style={{ paddingTop: 12 }}>
+            <Image source={require("../../assets/home.png")} />
           </View>
           <View>
-            <Text style={{ fontSize: 15, fontWeight: "bold" }}>besanna</Text>
+            {/* <Text style={{ fontSize: 15, fontWeight: "bold" }}>besanna</Text> */}
+            <Image
+              source={require("../../assets/besanna_logo.png")}
+              style={{ width: width / 2, height: 53, resizeMode: "center" }}
+            />
           </View>
-          <View>
-            <Icon type="FontAwesome" name="bars" />
+          <View style={{ paddingTop: 12 }}>
+            <Image source={require("../../assets/menu.png")} />
           </View>
         </View>
         <ScrollView>
