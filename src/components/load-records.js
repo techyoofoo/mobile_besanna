@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Image, StatusBar, ScrollView, TouchableOpacity, Dimensions } from "react-native";
+import {
+  Image,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity,
+  Dimensions
+} from "react-native";
 import {
   Container,
   Header,
@@ -21,7 +27,6 @@ import { base_url } from "../constants";
 const { width, windowHeight } = Dimensions.get("window");
 export default class LoadRecords extends Component {
   componentDidMount() {
-    this.loadAllReports();
     const { navigation } = this.props;
     const propName = navigation.getParam("itemName"); //JSON.stringify();
     // console.log("------", JSON.stringify(navigation.getParam("itemName")));
@@ -30,6 +35,10 @@ export default class LoadRecords extends Component {
   state = {
     reportInfo: []
   };
+  // component unmount
+  componentWillUnmount() {
+    this.loadAllReports("Basil");
+  }
   loadAllReports = propName => {
     fetch(`${base_url}get-product-by-name/${propName}`)
       .then(response => response.json())
@@ -77,7 +86,7 @@ export default class LoadRecords extends Component {
                     {recordDt.name}
                   </Text>
                 </CardItem>
-                <CardItem style={{ justifyContent: "space-around" }}>
+                <CardItem>
                   <Left>
                     {recordDt.Topically === 1 ? (
                       <View
@@ -131,6 +140,7 @@ export default class LoadRecords extends Component {
                     ) : (
                       <View />
                     )}
+
                     {recordDt.internally === 1 ? (
                       <View
                         style={{
@@ -183,6 +193,7 @@ export default class LoadRecords extends Component {
                     ) : (
                       <View />
                     )}
+
                     {recordDt.Dilute === 1 ? (
                       <View
                         style={{
@@ -234,7 +245,32 @@ export default class LoadRecords extends Component {
                     </View>
                   </Left>
                   <Right>
-                    <Thumbnail source={{ uri: recordDt.image_path }} />
+                    <View
+                      style={{
+                        overflow: "hidden",
+                        width: 105,
+                        height: 210,
+                        position: "relative",
+                        borderTopLeftRadius: 150,
+                        borderBottomLeftRadius: 150,
+                        backgroundColor: "#cecec6",
+                        borderColor: "#c3c3c1",
+                        justifyContent: "center",
+                        marginRight: 0,
+                        // margin: 20,
+                        elevation: 2
+                      }}
+                    >
+                      <Image
+                        style={{
+                          // width: 200,
+                          // width: Dimensions.get('window').width - 23,
+                          height: 120,
+                          resizeMode: "contain"
+                        }}
+                        source={{ uri: recordDt.image_path }}
+                      />
+                    </View>
                   </Right>
                 </CardItem>
 
@@ -300,9 +336,7 @@ export default class LoadRecords extends Component {
                   </Text>
                 </CardItem>
                 <CardItem>
-                  <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                   Body
-                  </Text>
+                  <Text style={{ fontSize: 20, fontWeight: "bold" }}>Body</Text>
                 </CardItem>
                 <CardItem>
                   <Text
@@ -318,7 +352,7 @@ export default class LoadRecords extends Component {
                 </CardItem>
                 <CardItem>
                   <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                   Uses & Directions
+                    Uses & Directions
                   </Text>
                 </CardItem>
                 <CardItem>
@@ -336,7 +370,7 @@ export default class LoadRecords extends Component {
                 </CardItem>
                 <CardItem>
                   <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                  Cautions
+                    Cautions
                   </Text>
                 </CardItem>
                 <CardItem>
@@ -353,7 +387,7 @@ export default class LoadRecords extends Component {
                 </CardItem>
                 <CardItem>
                   <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                  Complementary Oils
+                    Complementary Oils
                   </Text>
                 </CardItem>
                 <CardItem>
@@ -371,7 +405,7 @@ export default class LoadRecords extends Component {
               </Card>
             );
           })}
-          <View style={{paddingTop: 50}}/>
+          <View style={{ paddingTop: 50 }} />
         </ScrollView>
       </View>
     );

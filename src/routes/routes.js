@@ -109,7 +109,7 @@ const Routes = createStackNavigator(
     }
   },
   {
-    initialRouteName: "LoginScreen"
+    initialRouteName: "ScanReport"
   }
 );
 
