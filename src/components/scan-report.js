@@ -90,12 +90,15 @@ const styles = {
 
 // export default () =>
 export default class ScanReport extends Component {
+  _isMounted = false;
   state = {
     cards: []
   };
   componentDidMount() {
+    this._isMounted = true;
     this.loadAllReports();
   }
+  
   loadAllReports = () => {
     fetch(`${base_url}get-all-products`)
       .then(response => response.json())
@@ -109,6 +112,10 @@ export default class ScanReport extends Component {
         console.error(error);
       });
   };
+  componentWillUnmount() {
+    this._isMounted = false;
+    this.loadAllReports();
+  }
   render() {
     // console.log("------", 45 * Math.PI / 180);
     const angleRad = (45 * Math.PI) / 180;
@@ -218,6 +225,35 @@ export default class ScanReport extends Component {
             marginLeft: 95
           }}
         >
+          <View style={{ flex: 1, alignSelf: "flex-end" }}>
+        <View
+          style={{
+            overflow: "hidden",
+            width: 35,//Dimensions.get("window").width / 2 + 30,
+            height: Dimensions.get("window").height / 1.5 +40,
+            // borderRadius: 100,
+            // borderBottomEndRadius: 228,
+            // borderTopStartRadius: 228,
+            // borderTopEndRadius: 228,
+            // borderBottomStartRadius: 228,
+            // borderBottomLeftRadius: 228,
+            // borderBottomRightRadius: 228,
+            // backgroundColor: "white",
+            // padding: 10,
+            right:40,
+            bottom:40
+            // justifyContent: "space-between",
+            // alignItems: "center",
+            // elevation: 15,
+            // shadowColor: "black",
+            // shadowOffset: { width: 0, height: 0.5 * 20 },
+            // shadowOpacity: 0.3,
+            // shadowRadius: 0.8 * 20,
+          }}
+        >
+          <Image source={require('../../assets/bg1.png')} />
+        </View>
+      </View>
           <View
             style={{
               width: Dimensions.get("window").width / 2 + 30,
@@ -250,6 +286,7 @@ export default class ScanReport extends Component {
               // showPagination
             >
               {this.state.cards.map((dtSrc, k) => {
+                console.log('Key--'+ k)
                 return (
                   <View key={k}>
                     <TouchableOpacity
