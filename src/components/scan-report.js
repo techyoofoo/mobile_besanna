@@ -318,160 +318,185 @@ export default class ScanReport extends Component {
                         {dtSrc.benfits}
                       </Text>
                     </View>
-                    <View
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#995472",
-                        borderColor: "#654662",
-                        bottom: 80,
-                        left: 10,
-                        position: "relative",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text
+                    {dtSrc.Topically === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#995472",
+                          borderColor: "#654662",
+                          bottom: 80,
+                          left: 10,
+                          position: "relative",
+                          justifyContent: "center",
+                          alignItems: "center"
                         }}
                       >
-                        T
-                      </Text>
-                    </View>
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          T
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
 
-                    <View
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#604561",
-                        borderColor: "#bfbeb7",
-                        bottom: 20,
-                        position: "absolute",
-                        zIndex: 1,
-                        // zIndex: 999,
-                        left: 35,
-                        position: "absolute",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text
+                    {dtSrc.youngskin === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#604561",
+                          borderColor: "#bfbeb7",
+                          bottom: 20,
+                          position: "absolute",
+                          zIndex: 1,
+                          // zIndex: 999,
+                          left: 35,
+                          position: "absolute",
+                          justifyContent: "center",
+                          alignItems: "center"
                         }}
                       >
-                        S
-                      </Text>
-                    </View>
-                    <View
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#223849",
-                        borderColor: "#927b85",
-                        bottom: 0,
-                        left: 70,
-                        position: "absolute",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          S
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
+
+                    {dtSrc.internally === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#223849",
+                          borderColor: "#927b85",
+                          bottom: 0,
+                          left: 70,
+                          position: "absolute",
+                          justifyContent: "center",
+                          alignItems: "center"
                         }}
                       >
-                        I
-                      </Text>
-                    </View>
-                    <View
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#c89ba2",
-                        borderColor: "#b86a80",
-                        bottom: 0,
-                        left: 120,
-                        position: "absolute",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          I
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
+                    {dtSrc.Aromatic === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#c89ba2",
+                          borderColor: "#b86a80",
+                          bottom: 0,
+                          left: 120,
+                          position: "absolute",
+                          justifyContent: "center",
+                          alignItems: "center"
                         }}
                       >
-                        A
-                      </Text>
-                    </View>
-                    <View
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#b4b9bb",
-                        borderColor: "#747575",
-                        bottom: 20,
-                        left: 160,
-                        position: "absolute",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          A
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
+                    {dtSrc.Dilute === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#b4b9bb",
+                          borderColor: "#747575",
+                          bottom: 20,
+                          left: 160,
+                          position: "absolute",
+                          justifyContent: "center",
+                          alignItems: "center"
                         }}
                       >
-                        D
-                      </Text>
-                    </View>
-                    <View
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#cecec6",
-                        borderColor: "#cbbfb6",
-                        bottom: 50,
-                        left: 180,
-                        position: "absolute",
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Text
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          D
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
+                    {dtSrc.nodilution === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#cecec6",
+                          borderColor: "#cbbfb6",
+                          bottom: 60,
+                          left: 180,
+                          position: "absolute",
+                          justifyContent: "center",
+                          alignItems: "center"
                         }}
                       >
-                        N
-                      </Text>
-                    </View>
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          N
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
                   </View>
                 );
               })}

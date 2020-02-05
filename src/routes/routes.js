@@ -14,6 +14,7 @@ import PersonalizePerference from '../components/personalize-preference';
 import LoadCamera from '../components/load-camera';
 import ScanReport from '../components/scan-report';
 import LoadRecords from '../components/load-records';
+import PreviousScanResults from "../components/scan-menu/previous-scan";
 
 const Routes = createStackNavigator(
   {
@@ -106,10 +107,17 @@ const Routes = createStackNavigator(
         header: null,
         headerLeft: null
       }
+    },
+    PreviousScanResults:{
+      screen:PreviousScanResults,
+      navigationOptions:{
+        header: null,
+        headerLeft: null
+      }
     }
   },
   {
-    initialRouteName: "ScanReport"
+    initialRouteName: "LoginScreen"
   }
 );
 

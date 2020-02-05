@@ -220,29 +220,32 @@ export default class LoadRecords extends Component {
                     ) : (
                       <View />
                     )}
-
-                    <View
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: 30,
-                        height: 30,
-                        borderRadius: 15,
-                        backgroundColor: "#cecec6",
-                        borderColor: "#cbbfb6"
-                      }}
-                    >
-                      <Text
+                    {recordDt.nodilution === 1 ? (
+                      <View
                         style={{
-                          textAlignVertical: "center",
-                          textAlign: "center",
-                          fontWeight: "bold",
-                          color: "#fff"
+                          justifyContent: "center",
+                          alignItems: "center",
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          backgroundColor: "#cecec6",
+                          borderColor: "#cbbfb6"
                         }}
                       >
-                        N
-                      </Text>
-                    </View>
+                        <Text
+                          style={{
+                            textAlignVertical: "center",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "#fff"
+                          }}
+                        >
+                          N
+                        </Text>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
                   </Left>
                   <Right>
                     <View
