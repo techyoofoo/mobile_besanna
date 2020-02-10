@@ -6,10 +6,14 @@ export default class ScanningMenu extends Component {
   render() {
     return (
       <View>
-        <View style={appStyleSheets.appScannerImage}>
-          <Image source={require("../../assets/scan_menu.png")} />
-        </View>
-        <View style={{ flexDirection: "row", justifyContent:'space-around' }}>
+        {/* <View style={appStyleSheets.appScannerImage}>
+         
+        </View> */}
+         <View style={{flexDirection:'row', justifyContent:'space-around', paddingTop:150}}>
+         <Image source={require("../../assets/logo.png")} style={{width:deviceDimensions.width-20, height: 200, resizeMode:'contain'}} />
+
+         </View>
+        <View style={{ flexDirection: "row", justifyContent:'space-around', marginTop: 100 }}>
           <View style={{ margin: 10 }}>
             <TouchableOpacity
               style={appStyleSheets.btnTextScanMenu}

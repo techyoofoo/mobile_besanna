@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
+import {color_theme} from '../constants';
 
 export const deviceDimensions = Dimensions.get("window");
-export const themeColor = "#416E74";
+export const themeColor = color_theme;
 export const textColor = "#fff";
 
 const appStyleSheets = StyleSheet.create({
@@ -13,7 +14,9 @@ const appStyleSheets = StyleSheet.create({
     height: 180,
     backgroundColor: themeColor,
     borderBottomLeftRadius: 60,
-    borderBottomRightRadius: 60
+    borderBottomRightRadius: 60,
+    justifyContent:'center',
+    alignContent:'center'    
     // margin: 10
   },
   inputBorderStyle: {
@@ -79,7 +82,7 @@ const appStyleSheets = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 40
+    marginTop: 140
   },
   //-------------------------------------------------App scanner ends---------------------
 

@@ -87,194 +87,235 @@ export default class LoadRecords extends Component {
                   </Text>
                 </CardItem>
                 <CardItem>
-                  <Left>
-                    {recordDt.Topically === 1 ? (
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#995472",
-                          borderColor: "#654662"
-                        }}
-                      >
-                        <Text
+                  <View style={{ flexDirection: "row", paddingTop: 20 }}>
+                    <Left>
+                      <View style={{ flexDirection: "column" }}>
+                        <View
                           style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
+                            flexDirection: "row",
+                            justifyContent: "space-evenly",
+                            margin:10
                           }}
                         >
-                          T
-                        </Text>
-                      </View>
-                    ) : (
-                      <View />
-                    )}
-                    {recordDt.youngskin === 1 ? (
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#604561",
-                          borderColor: "#bfbeb7"
-                        }}
-                      >
-                        <Text
+                          {recordDt.Topically === 1 ? (
+                            <View
+                              style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: 30,
+                                height: 30,
+                                borderRadius: 15,
+                                backgroundColor: "#995472",
+                                borderColor: "#654662"
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  textAlignVertical: "center",
+                                  textAlign: "center",
+                                  fontWeight: "bold",
+                                  color: "#fff"
+                                }}
+                              >
+                                T
+                              </Text>
+                            </View>
+                          ) : (
+                            <View />
+                          )}
+                          
+                          {recordDt.youngskin === 1 ? (
+                            <View>
+                              <View style={{marginLeft: 10}} />
+                              <View
+                              style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: 30,
+                                height: 30,
+                                borderRadius: 15,
+                                backgroundColor: "#604561",
+                                borderColor: "#bfbeb7"
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  textAlignVertical: "center",
+                                  textAlign: "center",
+                                  fontWeight: "bold",
+                                  color: "#fff"
+                                }}
+                              >
+                                S
+                              </Text>
+                            </View>
+                            </View>
+                          ) : (
+                            <View />
+                          )}
+                        </View>
+                        <View
                           style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
+                            flexDirection: "row",
+                            justifyContent: "space-evenly",
+                            margin:10
                           }}
                         >
-                          S
-                        </Text>
-                      </View>
-                    ) : (
-                      <View />
-                    )}
-
-                    {recordDt.internally === 1 ? (
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#223849",
-                          borderColor: "#927b85"
-                        }}
-                      >
-                        <Text
+                          {recordDt.internally === 1 ? (
+                            <View
+                              style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: 30,
+                                height: 30,
+                                borderRadius: 15,
+                                backgroundColor: "#223849",
+                                borderColor: "#927b85"
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  textAlignVertical: "center",
+                                  textAlign: "center",
+                                  fontWeight: "bold",
+                                  color: "#fff"
+                                }}
+                              >
+                                I
+                              </Text>
+                            </View>
+                          ) : (
+                            <View />
+                          )}
+                           
+                          {recordDt.Aromatic === 1 ? (
+                            <View>
+                              <View style={{marginLeft: 10}} />
+                            <View
+                              style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: 30,
+                                height: 30,
+                                borderRadius: 15,
+                                backgroundColor: "#c89ba2",
+                                borderColor: "#b86a80"
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  textAlignVertical: "center",
+                                  textAlign: "center",
+                                  fontWeight: "bold",
+                                  color: "#fff"
+                                }}
+                              >
+                                A
+                              </Text>
+                            </View>
+                            </View>
+                          ) : (
+                            <View />
+                          )}
+                        </View>
+                        <View
                           style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
+                            flexDirection: "row",
+                            justifyContent: "space-evenly",
+                            margin:10
                           }}
                         >
-                          I
-                        </Text>
+                          {recordDt.Dilute === 1 ? (
+                            <View
+                              style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: 30,
+                                height: 30,
+                                borderRadius: 15,
+                                backgroundColor: "#b4b9bb",
+                                borderColor: "#747575"
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  textAlignVertical: "center",
+                                  textAlign: "center",
+                                  fontWeight: "bold",
+                                  color: "#fff"
+                                }}
+                              >
+                                D
+                              </Text>
+                            </View>
+                          ) : (
+                            <View />
+                          )}
+                           
+                          {recordDt.nodilution === 1 ? (
+                            
+                            <View>
+                              <View style={{marginLeft: 10}} />
+                              <View
+                              style={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: 30,
+                                height: 30,
+                                borderRadius: 15,
+                                backgroundColor: "#cecec6",
+                                borderColor: "#cbbfb6"
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  textAlignVertical: "center",
+                                  textAlign: "center",
+                                  fontWeight: "bold",
+                                  color: "#fff"
+                                }}
+                              >
+                                N
+                              </Text>
+                            </View>
+                            </View>
+                          ) : (
+                            <View />
+                          )}
+                        </View>
                       </View>
-                    ) : (
-                      <View />
-                    )}
-                    {recordDt.Aromatic === 1 ? (
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#c89ba2",
-                          borderColor: "#b86a80"
-                        }}
-                      >
-                        <Text
+                    </Left>
+                    <Right>
+                      <View style={{ flexDirection: "column", margin: 20 }}>
+                        <View
                           style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
+                            overflow: "hidden",
+                            width: 105,
+                            height: 210,
+                            position: "relative",
+                            borderTopLeftRadius: 150,
+                            borderBottomLeftRadius: 150,
+                            backgroundColor: "#cecec6",
+                            borderColor: "#c3c3c1",
+                            justifyContent: "center",
+                            marginRight: 0,
+                            // margin: 20,
+                            elevation: 2
                           }}
                         >
-                          A
-                        </Text>
+                          <Image
+                            style={{
+                              // width: 200,
+                              // width: Dimensions.get('window').width - 23,
+                              height: 120,
+                              resizeMode: "contain"
+                            }}
+                            source={{ uri: recordDt.image_path }}
+                          />
+                        </View>
                       </View>
-                    ) : (
-                      <View />
-                    )}
-
-                    {recordDt.Dilute === 1 ? (
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#b4b9bb",
-                          borderColor: "#747575"
-                        }}
-                      >
-                        <Text
-                          style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
-                          }}
-                        >
-                          D
-                        </Text>
-                      </View>
-                    ) : (
-                      <View />
-                    )}
-                    {recordDt.nodilution === 1 ? (
-                      <View
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: 30,
-                          height: 30,
-                          borderRadius: 15,
-                          backgroundColor: "#cecec6",
-                          borderColor: "#cbbfb6"
-                        }}
-                      >
-                        <Text
-                          style={{
-                            textAlignVertical: "center",
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            color: "#fff"
-                          }}
-                        >
-                          N
-                        </Text>
-                      </View>
-                    ) : (
-                      <View />
-                    )}
-                  </Left>
-                  <Right>
-                    <View
-                      style={{
-                        overflow: "hidden",
-                        width: 105,
-                        height: 210,
-                        position: "relative",
-                        borderTopLeftRadius: 150,
-                        borderBottomLeftRadius: 150,
-                        backgroundColor: "#cecec6",
-                        borderColor: "#c3c3c1",
-                        justifyContent: "center",
-                        marginRight: 0,
-                        // margin: 20,
-                        elevation: 2
-                      }}
-                    >
-                      <Image
-                        style={{
-                          // width: 200,
-                          // width: Dimensions.get('window').width - 23,
-                          height: 120,
-                          resizeMode: "contain"
-                        }}
-                        source={{ uri: recordDt.image_path }}
-                      />
-                    </View>
-                  </Right>
+                    </Right>
+                  </View>
                 </CardItem>
 
                 <CardItem>

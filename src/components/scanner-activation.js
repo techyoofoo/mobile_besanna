@@ -1,12 +1,17 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, StatusBar } from "react-native";
-import appStyleSheets, { themeColor } from "../styles/styles";
+import { Text, View, TouchableOpacity, StatusBar, Image } from "react-native";
+import appStyleSheets, { themeColor, deviceDimensions } from "../styles/styles";
+
 
 export default class ActivateScanner extends Component {
   render() {
     return (
       <View>
         <StatusBar style={themeColor} />
+        <Image
+            source={require("../../assets/besanna_logo.png")}
+            style={{ width: deviceDimensions.width / 2, height: 53, resizeMode: "center", alignSelf: 'center', paddingTop: 20 }}
+          />
         <Text style={appStyleSheets.activateScannerHeader}> Success!</Text>
         <Text style={appStyleSheets.activateScannerText}>
           Your scanner is now active on

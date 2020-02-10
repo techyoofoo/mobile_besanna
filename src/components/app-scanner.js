@@ -7,7 +7,11 @@ render() {
   return (
     <View>
       <StatusBar style={themeColor} />
-      <Text style={appStyleSheets.appScannerHeader}>besanna</Text>
+      {/* <Text style={appStyleSheets.appScannerHeader}>besanna</Text> */}      
+        <Image
+            source={require("../../assets/besanna_logo.png")}
+            style={{ width: deviceDimensions.width / 2, height: 53, resizeMode: "center", alignSelf: 'center', paddingTop: 20 }}
+          />
       <Text style={appStyleSheets.appScannerText}>
         we are glad you're here
         </Text>

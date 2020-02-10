@@ -105,7 +105,10 @@ export default class ScanReport extends Component {
       .then(async responseJson => {
         // console.log("responseJson.data", responseJson.data);
         // const dt = await responseJson.data;
+        if(responseJson.data.length > 0)
         this.setState({ cards: responseJson.data });
+        else 
+        this.setState({ cards: [] });
         // return responseJson.movies;
       })
       .catch(error => {
@@ -285,7 +288,7 @@ export default class ScanReport extends Component {
               index={2}
               // showPagination
             >
-              {this.state.cards.map((dtSrc, k) => {
+              {this.state.cards.length > 0 ? this.state.cards.map((dtSrc, k) => {
                 console.log('Key--'+ k)
                 return (
                   <View key={k}>
@@ -536,7 +539,7 @@ export default class ScanReport extends Component {
                     )}
                   </View>
                 );
-              })}
+              }) : <View />}
               {/* </Swiper> */}
             </SwiperFlatList>
           </View>
