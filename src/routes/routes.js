@@ -15,7 +15,7 @@ import LoadCamera from '../components/load-camera';
 import ScanReport from '../components/scan-report';
 import LoadRecords from '../components/load-records';
 import PreviousScanResults from "../components/scan-menu/previous-scan";
-// import TestScreen from "../components/testscreen";
+import TestReport from "../components/testscreen";
 
 const Routes = createStackNavigator(
   {
@@ -115,10 +115,17 @@ const Routes = createStackNavigator(
         header: null,
         headerLeft: null
       }
+    },
+    TestReport:{
+      screen:TestReport,
+      navigationOptions:{
+        header: null,
+        headerLeft: null
+      }
     }
   },
   {
-    initialRouteName: "LoginScreen"
+    initialRouteName: "TestReport"
   }
 );
 
