@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
+import {color_theme} from '../constants';
 
 export const deviceDimensions = Dimensions.get("window");
-export const themeColor = "#416E74";
+export const themeColor = color_theme;
 export const textColor = "#fff";
 
 const scanStyles = StyleSheet.create({

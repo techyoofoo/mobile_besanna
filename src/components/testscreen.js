@@ -11,28 +11,54 @@ import {
 export default class TestReport extends Component {
   state = {
     showMenu: false,
-    display_text: "flex"
+    display_text: "flex",
+    show_display_background: false
   };
   render() {
     return (
       <View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between", paddingTop: 20 }}>
+        <View style={{ flexDirection: "row", justifyContent:'space-between',paddingTop: 20 }}>
         <TouchableOpacity><Image source={require("../../assets/home.png")} /></TouchableOpacity>
-          <TouchableOpacity
-            // style={{
-            //   paddingTop: 20,
-            //   alignContent: "flex-end",
-            //   justifyContent: "flex-end"
-            // }}
-            onPress={() => {
-              !this.state.showMenu
-                ? this.setState({ showMenu: true, display_text: "none" })
-                : this.setState({ showMenu: false, display_text: "flex" });
-            }}
-          >
-            <Image source={require("../../assets/menu.png")} />
-          </TouchableOpacity>
+        {
+          this.state.show_display_background ? <TouchableOpacity
+          style={{
+            backgroundColor:'#CECEC6',
+            width: Dimensions.get("screen").height / 3,
+            height: Dimensions.get("screen").height / 3,
+            // borderTopLeftRadius: 300,
+            borderBottomLeftRadius: 420,
+            borderBottomRightRadius: 420,
+            justifyContent:'flex-start',
+            // marginLeft: 130,
+            position:'absolute',
+            right:-35,
+            top: -35,
+            rotation:40
+            // zIndex:999
+          }}
+          onPress={() => {
+            !this.state.showMenu
+              ? this.setState({ showMenu: true, show_display_background:true })
+              : this.setState({ showMenu: false, show_display_background:false });
+          }}
+        >
+          <View style={{justifyContent:'flex-end', padding:80}}>
+          <Image source={require("../../assets/close.png")} />
+          </View>
+        </TouchableOpacity>:
+        <TouchableOpacity        
+        onPress={() => {
+          !this.state.showMenu
+            ? this.setState({ showMenu: true, display_text: "none", show_display_background:true })
+            : this.setState({ showMenu: false, display_text: "flex", show_display_background:false });
+        }}
+      >
+        <Image source={require("../../assets/menu.png")} />
+      </TouchableOpacity>
+        }
+          
         </View>
+        
         {this.state.showMenu ? (
           <View style={styles.container}>
             <TouchableOpacity style={styles.fab}>
@@ -123,6 +149,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "baseline",
     backgroundColor: "#fff",
-    paddingTop: 30
+    marginTop:20
+    // paddingTop: 20
   }
 });

@@ -125,7 +125,7 @@ const Routes = createStackNavigator(
     }
   },
   {
-    initialRouteName: "TestReport"
+    initialRouteName: "LoginScreen"
   }
 );
 
