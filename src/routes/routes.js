@@ -16,6 +16,8 @@ import ScanReport from '../components/scan-report';
 import LoadRecords from '../components/load-records';
 import PreviousScanResults from "../components/scan-menu/previous-scan";
 import TestReport from "../components/testscreen";
+import HelpScreen from "../components/common-menu/help-screen";
+import AboutUsScreen from "../components/common-menu/about-us";
 
 const Routes = createStackNavigator(
   {
@@ -122,7 +124,9 @@ const Routes = createStackNavigator(
         header: null,
         headerLeft: null
       }
-    }
+    },
+    HelpScreen: HelpScreen,
+    AboutUsScreen: AboutUsScreen
   },
   {
     initialRouteName: "LoginScreen"

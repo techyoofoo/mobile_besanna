@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1018,
-  "expoServerNgrokUrl": "https://35-in9.surendraraj3.mobile-besanna.exp.direct",
-  "packagerNgrokUrl": "https://packager.35-in9.surendraraj3.mobile-besanna.exp.direct",
-  "ngrokPid": 1090
+  "packagerPid": 40910,
+  "expoServerNgrokUrl": "https://c3-kse.surendraraj3.mobile-besanna.exp.direct",
+  "packagerNgrokUrl": "https://packager.c3-kse.surendraraj3.mobile-besanna.exp.direct",
+  "ngrokPid": 41043,
+  "webpackServerPort": null
 }

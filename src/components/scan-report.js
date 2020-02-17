@@ -330,8 +330,8 @@ export default class ScanReport extends Component {
               <TouchableOpacity onPress={() => {this.props.navigation.navigate("MyAccountScreen")}}><Text style={styles.text}>My Account</Text></TouchableOpacity>
               <Text style={styles.text}>My Scanner</Text>
               <TouchableOpacity onPress={() => {this.props.navigation.navigate("PersonalizePerference")}}><Text style={styles.text}>Preferences</Text></TouchableOpacity>
-              <Text style={[styles.text, { paddingTop: 40 }]}>Help</Text>
-              <Text style={styles.text}>About</Text>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate("HelpScreen")}}><Text style={[styles.text, { paddingTop: 40 }]}>Help</Text></TouchableOpacity>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate("AboutUsScreen")}}><Text style={styles.text}>About</Text></TouchableOpacity>
               <Text style={styles.text}>Reviews</Text>
             </View>
           </View>
