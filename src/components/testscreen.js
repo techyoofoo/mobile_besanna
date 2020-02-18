@@ -7,8 +7,20 @@ import {
   Dimensions,
   Image
 } from "react-native";
+import {base_url} from '../constants'
 
 export default class TestReport extends Component {
+  componentDidMount(){
+    //http://localhost:9010/
+    fetch(`${base_url}`)
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log('----', responseJson)
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
   state = {
     showMenu: false,
     display_text: "flex",
