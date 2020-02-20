@@ -17,12 +17,12 @@ export default class PreviousScanResults extends Component {
   render() {
     return (
       <View>
-        <StatusBar style={{ backgroundColor: color_theme }} />
+        <StatusBar style={{ backgroundColor: color_theme }} hidden />
         <View
           style={{
             flexDirection: "row",
             justifyContent: "space-around",
-            paddingTop: 10
+            paddingTop: 5
           }}
         >
           <Image
@@ -34,7 +34,7 @@ export default class PreviousScanResults extends Component {
           style={{
             flexDirection: "row",
             justifyContent: "space-around",
-            paddingTop: 10
+            paddingTop: 5
           }}
         >
           <Text style={{ fontSize: 20, color: color_theme }}>
@@ -42,13 +42,13 @@ export default class PreviousScanResults extends Component {
           </Text>
         </View>
         <ScrollView>
-          <View style={{ flexDirection: "row", paddingTop: 20 }}>
+          <View style={{ flexDirection: "row", paddingTop: 10 }}>
             <View style={{ flexDirection: "column" }}>
               <View
                 style={{
                   borderRadius: 100,
-                  width: 130,
-                  height: 130,
+                  width: 100,
+                  height: 100,
                   backgroundColor: "#cecec6",
                   borderColor: "#c3c3c1",
                   justifyContent: "center",
@@ -73,27 +73,27 @@ export default class PreviousScanResults extends Component {
                 />
               </View>
             </View>
-            <View style={{ flexDirection: "column", margin: 20 }}>
-              <Text style={{ paddingTop: 10, fontSize: 15 }}>
+            <View style={{ flexDirection: "column", margin: 10}}>
+              <Text style={{ paddingTop: 5, fontSize: 15 }}>
                 December 10, 2019
               </Text>
               <Text
-                style={{ paddingTop: 10, fontSize: 15, fontWeight: "bold" }}
+                style={{ paddingTop: 5, fontSize: 15, fontWeight: "bold" }}
               >
                 Top Recomondation
               </Text>
-              <Text style={{ paddingTop: 10, fontSize: 15, color: "#3D7073" }}>
+              <Text style={{ paddingTop: 5, fontSize: 15, color: "#3D7073" }}>
                 Basil
               </Text>
             </View>
           </View>
-          <View style={{ flexDirection: "row", paddingTop: 20 }}>
+          <View style={{ flexDirection: "row", paddingTop: 10 }}>
             <View style={{ flexDirection: "column" }}>
               <View
                 style={{
                   borderRadius: 100,
-                  width: 130,
-                  height: 130,
+                  width: 100,
+                  height: 100,
                   backgroundColor: "#cecec6",
                   borderColor: "#c3c3c1",
                   justifyContent: "center",
@@ -118,15 +118,15 @@ export default class PreviousScanResults extends Component {
                 />
               </View>
             </View>
-            <View style={{ flexDirection: "column", margin: 20 }}>
+            <View style={{ flexDirection: "column", margin: 10}}>
               <Text
-                style={{ paddingTop: 10, fontSize: 15, color: color_theme }}
+                style={{ paddingTop: 5, fontSize: 15, color: color_theme }}
               >
                 December 10, 2019
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   fontWeight: "bold",
                   color: product_desc_color
@@ -136,7 +136,7 @@ export default class PreviousScanResults extends Component {
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   color: product_name_color
                 }}
@@ -145,13 +145,13 @@ export default class PreviousScanResults extends Component {
               </Text>
             </View>
           </View>
-          <View style={{ flexDirection: "row", paddingTop: 20 }}>
+          <View style={{ flexDirection: "row", paddingTop: 10 }}>
             <View style={{ flexDirection: "column" }}>
               <View
                 style={{
                   borderRadius: 100,
-                  width: 130,
-                  height: 130,
+                  width: 100,
+                  height: 100,
                   backgroundColor: "#cecec6",
                   borderColor: "#c3c3c1",
                   justifyContent: "center",
@@ -176,15 +176,15 @@ export default class PreviousScanResults extends Component {
                 />
               </View>
             </View>
-            <View style={{ flexDirection: "column", margin: 20 }}>
+            <View style={{ flexDirection: "column", margin: 10}}>
               <Text
-                style={{ paddingTop: 10, fontSize: 15, color: color_theme }}
+                style={{ paddingTop: 5, fontSize: 15, color: color_theme }}
               >
                 December 10, 2019
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   fontWeight: "bold",
                   color: product_desc_color
@@ -194,7 +194,7 @@ export default class PreviousScanResults extends Component {
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   color: product_name_color
                 }}
@@ -203,13 +203,13 @@ export default class PreviousScanResults extends Component {
               </Text>
             </View>
           </View>
-          <View style={{ flexDirection: "row", paddingTop: 20 }}>
+          <View style={{ flexDirection: "row", paddingTop: 10 }}>
             <View style={{ flexDirection: "column" }}>
               <View
                 style={{
                   borderRadius: 100,
-                  width: 130,
-                  height: 130,
+                  width: 100,
+                  height: 100,
                   backgroundColor: "#cecec6",
                   borderColor: "#c3c3c1",
                   justifyContent: "center",
@@ -234,15 +234,15 @@ export default class PreviousScanResults extends Component {
                 />
               </View>
             </View>
-            <View style={{ flexDirection: "column", margin: 20 }}>
+            <View style={{ flexDirection: "column", margin: 10}}>
               <Text
-                style={{ paddingTop: 10, fontSize: 15, color: color_theme }}
+                style={{ paddingTop: 5, fontSize: 15, color: color_theme }}
               >
                 December 10, 2019
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   fontWeight: "bold",
                   color: product_desc_color
@@ -252,7 +252,7 @@ export default class PreviousScanResults extends Component {
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   color: product_name_color
                 }}
@@ -261,13 +261,13 @@ export default class PreviousScanResults extends Component {
               </Text>
             </View>
           </View>
-          <View style={{ flexDirection: "row", paddingTop: 20 }}>
+          <View style={{ flexDirection: "row", paddingTop: 10 }}>
             <View style={{ flexDirection: "column" }}>
               <View
                 style={{
                   borderRadius: 100,
-                  width: 130,
-                  height: 130,
+                  width: 100,
+                  height: 100,
                   backgroundColor: "#cecec6",
                   borderColor: "#c3c3c1",
                   justifyContent: "center",
@@ -292,15 +292,15 @@ export default class PreviousScanResults extends Component {
                 />
               </View>
             </View>
-            <View style={{ flexDirection: "column", margin: 20 }}>
+            <View style={{ flexDirection: "column", margin: 10}}>
               <Text
-                style={{ paddingTop: 10, fontSize: 15, color: color_theme }}
+                style={{ paddingTop: 5, fontSize: 15, color: color_theme }}
               >
                 December 10, 2019
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   fontWeight: "bold",
                   color: product_desc_color
@@ -310,7 +310,7 @@ export default class PreviousScanResults extends Component {
               </Text>
               <Text
                 style={{
-                  paddingTop: 10,
+                  paddingTop: 5,
                   fontSize: 15,
                   color: product_name_color
                 }}

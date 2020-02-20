@@ -55,7 +55,7 @@ export default class LoadRecords extends Component {
   render() {
     return (
       <View>
-        <StatusBar style={{ backgroundColor: "#416E74" }} />
+        <StatusBar style={{ backgroundColor: "#416E74" }} hidden />
         <View
           style={{
             flexDirection: "row",

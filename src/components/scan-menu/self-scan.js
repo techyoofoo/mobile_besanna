@@ -13,7 +13,7 @@ export default class SelfScanScreen extends Component {
   render() {
     return (
       <View>
-        <StatusBar style={themeColor} />
+        <StatusBar style={themeColor} hidden />
 
         <View style={scanStyles.selfScanHeader}>
           <TouchableOpacity

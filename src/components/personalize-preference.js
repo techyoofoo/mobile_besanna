@@ -14,7 +14,7 @@ export default class PersonalizePerference extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: themeColor }}>
-                <StatusBar style={themeColor} />
+                <StatusBar style={themeColor} hidden />
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <TouchableOpacity activeOpacity={0.5}
                         onPress={() => this.props.navigation.navigate("ActivateScanner")}><Text style={{ fontSize: 15, fontWeight: 'bold', color: textColor, paddingTop: 20, marginLeft: 20 }}>Back</Text></TouchableOpacity>

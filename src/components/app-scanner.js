@@ -6,7 +6,7 @@ export default class AppScanner extends Component {
 render() {
   return (
     <View>
-      <StatusBar style={themeColor} />
+      <StatusBar style={themeColor} hidden />
       {/* <Text style={appStyleSheets.appScannerHeader}>besanna</Text> */}      
         <Image
             source={require("../../assets/besanna_logo.png")}

@@ -219,7 +219,7 @@ export default class ScanReport extends Component {
     let curveArray = [];
     return (
       <View style={styles.container}>
-        <StatusBar style={{ backgroundColor: "#416E74" }} />
+        <StatusBar style={{ backgroundColor: "#416E74" }} hidden />
         <View
           style={{
             flexDirection: "row",

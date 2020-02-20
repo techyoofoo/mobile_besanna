@@ -14,7 +14,7 @@ export default class MyAccountScreen extends Component {
   render() {
     return (
       <ScrollView style={{ flex: 1, backgroundColor: themeColor }}>
-        <StatusBar style={themeColor} />
+        <StatusBar style={themeColor} hidden />
         <View
           style={{
             flexDirection: "row",

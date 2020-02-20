@@ -7,7 +7,7 @@ export default class ActivateScanner extends Component {
   render() {
     return (
       <View>
-        <StatusBar style={themeColor} />
+        <StatusBar style={themeColor} hidden />
         <Image
             source={require("../../assets/besanna_logo.png")}
             style={{ width: deviceDimensions.width / 2, height: 53, resizeMode: "center", alignSelf: 'center', paddingTop: 20 }}

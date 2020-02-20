@@ -7,7 +7,7 @@ export default class HeaderScreen extends Component {
   render() {
     return (
       <View>
-        <StatusBar style={themeColor} />
+        <StatusBar style={themeColor} hidden />
         <View style={appStyleSheets.bgHeader}>
         <Image
             source={require("../../assets/besanna_logo_white.png")}

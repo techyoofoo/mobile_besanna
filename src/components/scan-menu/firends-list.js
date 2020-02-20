@@ -128,7 +128,7 @@ export default class FriendList extends Component {
     // console.log("-----------------", this.state.listOfFriends);
     return (
       <ScrollView>
-        <StatusBar style={themeColor} />
+        <StatusBar style={themeColor} hidden />
         <View style={scanStyles.selfScanHeader}>
           <Text style={scanStyles.selfScanHeaderText}>besanna</Text>
           <Text
