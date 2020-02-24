@@ -129,7 +129,7 @@ const Routes = createStackNavigator(
     AboutUsScreen: AboutUsScreen
   },
   {
-    initialRouteName: "PreviousScanResults"
+    initialRouteName: "LoginScreen"
   }
 );
 

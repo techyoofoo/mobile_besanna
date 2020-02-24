@@ -66,6 +66,17 @@ const appStyleSheets = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff"
   },
+  disabledButtonStyle: {
+    marginTop: 20,
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginLeft: 30,
+    marginRight: 30,
+    backgroundColor: "#ccc",
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: "#fff"
+  },
   bttonTextStyle: { color: "#fff", textAlign: "center", fontSize: 25 },
   //-------------------------------------------------App scanner starts---------------------
   appScannerHeader: {
